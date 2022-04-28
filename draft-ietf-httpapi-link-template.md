@@ -42,7 +42,7 @@ normative:
 
 --- abstract
 
-TODO Abstract
+This specification defines the Link-Template HTTP header field, providing a means for describing the structure of a link between two resources, so that new links can be generated.
 
 
 --- middle
