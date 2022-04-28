@@ -23,7 +23,7 @@ title: "TODO - Your title"
 abbrev: "TODO - Abbreviation"
 category: info
 
-docname: draft-todo-yourname-protocol-latest
+docname: draft-ietf-httpapi-link-template-latest
 v: 3
 area: AREA
 workgroup: WG Working Group
