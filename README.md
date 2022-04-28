@@ -1,6 +1,6 @@
-# TODO - Your title
+# The Link-Template HTTP Header Field
 
-This is the working area for the IETF [HTTPAPI Working Group](https://datatracker.ietf.org/wg/httpapi/documents/) Internet-Draft, "TODO - Your title".
+This is the working area for the IETF [HTTPAPI Working Group](https://datatracker.ietf.org/wg/httpapi/documents/) Internet-Draft, "The Link-Template HTTP Header Field".
 
 * [Editor's Copy](https://ietf-wg-httpapi.github.io/link-template/#go.draft-ietf-httpapi-link-template.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-httpapi-link-template)
