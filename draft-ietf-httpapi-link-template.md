@@ -5,16 +5,16 @@ category: info
 
 docname: draft-ietf-httpapi-link-template-latest
 v: 3
-area: AREA
-workgroup: WG Working Group
+area: "Applications and Real-Time"
+workgroup: "Building Blocks for HTTP APIs"
 keyword: Internet-Draft
 venue:
-  group: WG
-  type: Working Group
-  mail: WG@example.com
-  arch: https://example.com/WG
-  github: USER/REPO
-  latest: https://example.com/LATEST
+  group: "Building Blocks for HTTP APIs"
+  type: "Working Group"
+  mail: "httpapi@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/httpapi/"
+  github: "ietf-wg-httpapi/link-template"
+  latest: "https://ietf-wg-httpapi.github.io/link-template/draft-ietf-httpapi-link-template.html"
 
 author:
  -
