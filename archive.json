@@ -1,0 +1,44 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2022-05-01T02:06:05.514288+00:00",
+  "repo": "ietf-wg-httpapi/link-template",
+  "labels": [
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOHQOfi85Ir2F7",
+      "title": "Structured Field?",
+      "url": "https://github.com/ietf-wg-httpapi/link-template/issues/1",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Emerging best practice is to use [Structured Fields](https://www.rfc-editor.org/rfc/rfc8941.html) for new headers, so that parsing is well-defined.\r\n\r\nArguments for sticking with a `Link`-like syntax:\r\n\r\n* Consistence with `Link` (IMO a very poor justification)\r\n* Reuse of `Link` parsers / other software (it's not well-defined, tho)\r\n* ???",
+      "createdAt": "2022-04-28T23:38:54Z",
+      "updatedAt": "2022-04-28T23:39:52Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mnot",
+          "authorAssociation": "MEMBER",
+          "body": "We could also talk about creating a SF version of `Link` (maybe `Links`?).",
+          "createdAt": "2022-04-28T23:39:18Z",
+          "updatedAt": "2022-04-28T23:39:52Z"
+        }
+      ]
+    }
+  ],
+  "pulls": []
+}
