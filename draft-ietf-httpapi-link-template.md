@@ -38,6 +38,7 @@ normative:
   URI-TEMPLATE: RFC6570
   URI: RFC3986
   WEB-LINKING: RFC8288
+  STRUCTURED-FIELDS: RFC8941
 
 
 --- abstract
@@ -58,22 +59,19 @@ This specification defines a HTTP header field {{HTTP}} for conveying templates 
 
 {::boilerplate bcp14-tagged}
 
-This document uses the Augmented BNF defined in {{HTTP}} to specify valid protocol elements. Additionally, it uses the modified "parameter" rule from {{!RFC5987}} and the "URI-Template" rule from {{URI-TEMPLATE}}.
+This specification uses the following terms from {{STRUCTURED-FIELDS}}: List, String, Parameter.
 
 
 # The Link-Template Header Field
 
-The Link-Template header field provides a means for serialising one or more links into HTTP message metadata. It is semantically equivalent to the Link header field defined in {{Section 3 of WEB-LINKING}}, except that it uses URI Templates {{URI-TEMPLATE}} to convey the structure of links.
+The Link-Template header field is a Structured Field {{STRUCTURED-FIELDS}} that serializes one or more links into HTTP message metadata. It is semantically equivalent to the Link header field defined in {{Section 3 of WEB-LINKING}}, except that it uses URI Templates {{URI-TEMPLATE}} to convey the structure of links.
 
-~~~ abnf
-Link-Template  = "Link-Template" ":" #templated-link
-templated-link = "<" URI-Template ">" *( ";" parameter )
-~~~
+Its value is a List of Strings. Each String is a URI Template, and Parameters on it carry associated metadata.
 
 For example:
 
 ~~~ http-message
-Link-Template: </{username}>; rel="https://example.org/rel/user"
+Link-Template: "/{username}"; rel="https://example.org/rel/user"
 ~~~
 
 indicates that a resource with the relation type "https://example.org/rel/user" can be found by interpolating the "username" variable into the template given.
@@ -82,9 +80,9 @@ The target for the link (as defined in {{Section 2 of WEB-LINKING}}) is the resu
 
 The context, relation type and target attributes for the link are determined as defined for the Link header field in {{Section 3 of WEB-LINKING}}.
 
-Parameters on a templated-link have identical semantics to those of a Link header field. This includes (but is not limited to) the use of the "rel" parameter to convey the relation type, the "anchor" parameter to modify the context IRI, and so on.
+Parameters on a templated-link have identical semantics to those of a Link header field. This includes (but is not limited to) the use of the "rel" parameter to convey the relation type, the "anchor" parameter to modify the context IRI, and so on. Parameter values MUST be Strings.
 
-Likewise, the requirements for parameters on templated-links are the same as those for a Link header field; in particular, the "rel" parameter MUST NOT appear more than once, and if it does, the templated-link MUST be ignored by parsers.
+Likewise, the requirements for parameters on templated-links are the same as those for a Link header field.
 
 This specification defines additional semantics for the "var-base" parameter on templated-links; see below.
 
@@ -100,7 +98,7 @@ To determine the URI for a given variable, the value given is used as a base URI
 For example:
 
 ~~~ http-message
-Link-Template: </widgets/{widget_id}>;
+Link-Template: "/widgets/{widget_id}>";
                rel="https://example.org/rel/widget";
                var-base="https://example.org/vars/"
 ~~~
@@ -110,7 +108,7 @@ indicates that a resource with the relation type "https://example.org/rel/widget
 If the current context of the message that the header appears within is "https://example.org/", the same information could be conveyed by this header field:
 
 ~~~ http-message
-Link-Template: </widgets/{widget_id}>;
+Link-Template: "/widgets/{widget_id}";
                rel="https://example.org/rel/widget";
                var-base="/vars/"
 ~~~
