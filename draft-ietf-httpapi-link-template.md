@@ -80,16 +80,16 @@ The target for the link (as defined in {{Section 2 of WEB-LINKING}}) is the resu
 
 The context, relation type and target attributes for the link are determined as defined for the Link header field in {{Section 3 of WEB-LINKING}}.
 
-Parameters on a templated-link have identical semantics to those of a Link header field. This includes (but is not limited to) the use of the "rel" parameter to convey the relation type, the "anchor" parameter to modify the context IRI, and so on. Parameter values MUST be Strings.
+Parameters on a templated link have identical semantics to those of a Link header field. This includes (but is not limited to) the use of the "rel" parameter to convey the relation type, the "anchor" parameter to modify the context IRI, and so on. Parameter values MUST be Strings.
 
-Likewise, the requirements for parameters on templated-links are the same as those for a Link header field.
+Likewise, the requirements for parameters on templated links are the same as those for a Link header field.
 
-This specification defines additional semantics for the "var-base" parameter on templated-links; see below.
+This specification defines additional semantics for the "var-base" parameter on templated links; see below.
 
 
 ## The 'var-base' parameter
 
-When a templated-link has a 'var-base' parameter, its value conveys a URI-reference that is used as a base URI for the variable names in the URI template. This allows template variables to be globally identified, rather than specific to the context of use.
+When a templated link has a 'var-base' parameter, its value conveys a URI-reference that is used as a base URI for the variable names in the URI template. This allows template variables to be globally identified, rather than specific to the context of use.
 
 Dereferencing the URI for a particular variable might lead to more information about the syntax or semantics of that variable; specification of particular formats for this information is out of scope for this document.
 
