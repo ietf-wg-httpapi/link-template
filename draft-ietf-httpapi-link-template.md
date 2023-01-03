@@ -74,7 +74,7 @@ For example:
 Link-Template: "/{username}"; rel="https://example.org/rel/user"
 ~~~
 
-indicates that a resource with the relation type "https://example.org/rel/user" can be found by interpolating the "username" variable into the template given.
+indicates that a resource with the relation type "https://example.org/rel/user" can be found by expanding the "username" variable into the template given.
 
 The target for the link (as defined in {{Section 2 of WEB-LINKING}}) is the result of expanding the URI Template {{URI-TEMPLATE}} (being converted to an absolute URI after expansion, if necessary).
 
@@ -103,7 +103,7 @@ Link-Template: "/widgets/{widget_id}"
                var-base="https://example.org/vars/"
 ~~~
 
-indicates that a resource with the relation type "https://example.org/rel/widget" can be found by interpolating the "https://example.org/vars/widget_id" variable into the template given.
+indicates that a resource with the relation type "https://example.org/rel/widget" can be found by expanding the "https://example.org/vars/widget_id" variable into the template given.
 
 If the current context of the message that the header appears within is "https://example.org/", the same information could be conveyed by this header field:
 
