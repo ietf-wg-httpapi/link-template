@@ -93,6 +93,8 @@ Link-Template: </books/{book_id}/author>;
 
 Here, the link to the author for a particular book in a list of books can be found by following the link template.
 
+Implementations MUST support all levels of template defined by {{URI-TEMPLATE}} in both the rel and anchor parameters.
+
 This specification defines additional semantics for the "var-base" parameter on templated links; see below.
 
 
