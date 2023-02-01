@@ -84,6 +84,15 @@ Parameters on a templated link have identical semantics to those of a Link heade
 
 Likewise, the requirements for parameters on templated links are the same as those for a Link header field.
 
+However, the "anchor" parameter MAY contain a URI Template. For example:
+
+~~~ http-message
+Link-Template: </books/{book_id}/author>;
+               rel="author" anchor="#{book_id}"
+~~~
+
+Here, the link to the author for a particular book in a list of books can be found by following the link template.
+
 This specification defines additional semantics for the "var-base" parameter on templated links; see below.
 
 
