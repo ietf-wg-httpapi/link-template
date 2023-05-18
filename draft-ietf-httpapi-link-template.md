@@ -34,7 +34,7 @@ author:
     uri: https://www.mnot.net/
 
 normative:
-  HTTP: I-D.ietf-httpbis-semantics
+  HTTP: RFC9110
   URI-TEMPLATE: RFC6570
   URI: RFC3986
   WEB-LINKING: RFC8288
@@ -133,9 +133,9 @@ The security consideration for the Link header field in {{WEB-LINKING}} and thos
 
 This specification enters the "Link-Template" into the Hypertext Transfer Protocol (HTTP) Field Name Registry.
 
-    Field Name: Link-Template
-    Status: permanent
-    Specification document: [this document]
+* Field Name: Link-Template
+* Status: permanent
+* Specification document: [this document]
 
 
 --- back
