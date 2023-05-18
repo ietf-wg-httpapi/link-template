@@ -71,10 +71,10 @@ Its value is a List of Strings. Each String is a URI Template, and Parameters on
 For example:
 
 ~~~ http-message
-Link-Template: "/{username}"; rel="https://example.org/rel/user"
+Link-Template: "/{username}"; rel="item"
 ~~~
 
-indicates that a resource with the relation type "https://example.org/rel/user" can be found by expanding the "username" variable into the template given.
+indicates that a resource with the relation type "item" can be found by expanding the "username" variable into the template given.
 
 The target for the link (as defined in {{Section 2 of WEB-LINKING}}) is the result of expanding the URI Template {{URI-TEMPLATE}} (being converted to an absolute URI after expansion, if necessary).
 
