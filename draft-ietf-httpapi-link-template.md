@@ -87,8 +87,8 @@ Likewise, the requirements for parameters on templated links are the same as tho
 However, the "anchor" parameter MAY contain a URI Template. For example:
 
 ~~~ http-message
-Link-Template: </books/{book_id}/author>;
-               rel="author" anchor="#{book_id}"
+Link-Template: "/books/{book_id}/author";
+               rel="author"; anchor="#{book_id}"
 ~~~
 
 Here, the link to the author for a particular book in a list of books can be found by following the link template.
