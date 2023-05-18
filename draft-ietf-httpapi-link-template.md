@@ -109,7 +109,7 @@ To determine the URI for a given variable, the value given is used as a base URI
 For example:
 
 ~~~ http-message
-Link-Template: "/widgets/{widget_id}"
+Link-Template: "/widgets/{widget_id}";
                rel="https://example.org/rel/widget";
                var-base="https://example.org/vars/"
 ~~~
