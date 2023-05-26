@@ -76,15 +76,11 @@ Link-Template: "/{username}"; rel="item"
 
 indicates that a resource with the relation type "item" can be found by expanding the "username" variable into the template given.
 
-The target for the link (as defined in {{Section 2 of WEB-LINKING}}) is the result of expanding the URI Template {{URI-TEMPLATE}} (being converted to an absolute URI after expansion, if necessary).
+The link target (as defined in {{Section 2 of WEB-LINKING}}) is the result of expanding the URI Template {{URI-TEMPLATE}} (being converted to an absolute URI after expansion, if necessary).
 
-The context, relation type and target attributes for the link are determined as defined for the Link header field in {{Section 3 of WEB-LINKING}}.
+The link context and link relation type for the link (as defined in {{Section 2 of WEB-LINKING}}) are conveyed using the "anchor" and "rel" Parameters, as they are for the Link header field in {{Section 3 of WEB-LINKING}}. Their values MUST be Strings.
 
-Parameters on a templated link have identical semantics to those of a Link header field. This includes (but is not limited to) the use of the "rel" parameter to convey the relation type, the "anchor" parameter to modify the context IRI, and so on. Parameter values MUST be Strings.
-
-Likewise, the requirements for parameters on templated links are the same as those for a Link header field.
-
-However, the "anchor" parameter MAY contain a URI Template. For example:
+However, the "anchor" Parameter MAY contain a URI Template. For example:
 
 ~~~ http-message
 Link-Template: "/books/{book_id}/author";
@@ -93,9 +89,11 @@ Link-Template: "/books/{book_id}/author";
 
 Here, the link to the author for a particular book in a list of books can be found by following the link template.
 
-Implementations MUST support all levels of template defined by {{URI-TEMPLATE}} in the link String and the anchor Parameter.
+This specification defines additional semantics for the "var-base" Parameter on templated links; see below.
 
-This specification defines additional semantics for the "var-base" parameter on templated links; see below.
+The link's target attributes (as defined in {{Section 2.2 of WEB-LINKING}}) are conveyed using other Parameters, in a manner similar to the Link header field. These Parameter values MUST be Strings. Note that some target attribute names will not serialise as Structure Field Parameter keys (see {{Section 3.1.2 of STRUCTURED-FIELDS}}).
+
+Implementations MUST support all levels of template defined by {{URI-TEMPLATE}} in the link String and the anchor Parameter.
 
 
 ## The 'var-base' parameter
