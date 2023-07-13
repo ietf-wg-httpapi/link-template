@@ -74,7 +74,7 @@ For example:
 Link-Template: "/{username}"; rel="item"
 ~~~
 
-indicates that a resource with the relation type "item" can be found by expanding the "username" variable into the template given.
+indicates that a resource with the relation type "item" for a given "username" can be found by expanding the "username" variable into the template given.
 
 The link target (as defined in {{Section 2 of WEB-LINKING}}) is the result of expanding the URI Template {{URI-TEMPLATE}} (being converted to an absolute URI after expansion, if necessary).
 
