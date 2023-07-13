@@ -1,0 +1,101 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2022-08-09T01:58:51.392904+00:00",
+  "repo": "ietf-wg-httpapi/link-template",
+  "labels": [
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOHQOfi85Ir2F7",
+      "title": "Structured Field?",
+      "url": "https://github.com/ietf-wg-httpapi/link-template/issues/1",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Emerging best practice is to use [Structured Fields](https://www.rfc-editor.org/rfc/rfc8941.html) for new headers, so that parsing is well-defined.\r\n\r\nArguments for sticking with a `Link`-like syntax:\r\n\r\n* Consistence with `Link` (IMO a very poor justification)\r\n* Reuse of `Link` parsers / other software (it's not well-defined, tho)\r\n* ???",
+      "createdAt": "2022-04-28T23:38:54Z",
+      "updatedAt": "2022-06-12T17:34:11Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "mnot",
+          "authorAssociation": "MEMBER",
+          "body": "We could also talk about creating a SF version of `Link` (maybe `Links`?).",
+          "createdAt": "2022-04-28T23:39:18Z",
+          "updatedAt": "2022-04-28T23:39:52Z"
+        },
+        {
+          "author": "handrews",
+          "authorAssociation": "NONE",
+          "body": "> We could also talk about creating a SF version of Link (maybe Links?).\r\n\r\nMatching SF `Links` and `Link-Templates` headers would be appealing.",
+          "createdAt": "2022-06-12T16:24:50Z",
+          "updatedAt": "2022-06-12T16:24:50Z"
+        },
+        {
+          "author": "mnot",
+          "authorAssociation": "MEMBER",
+          "body": "In the meantime (or maybe before ;) --\r\n  https://httpwg.org/http-extensions/draft-ietf-httpbis-retrofit.html#name-links",
+          "createdAt": "2022-06-12T17:34:10Z",
+          "updatedAt": "2022-06-12T17:34:10Z"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOHQOfi85LndDC",
+      "title": "anchor parameter as URI Template?",
+      "url": "https://github.com/ietf-wg-httpapi/link-template/issues/2",
+      "state": "OPEN",
+      "author": "handrews",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Has there been any consideration of allowing a URI Template for the `anchor` parameter?\r\n\r\nA particular use case would be for a collection resource that includes links from each item in the collection.  If the media type supports fragments, then the item link could be templatized to point from specific locations in the representation.\r\n\r\nIf we had a collection of books represented as an object with an `items` array, and the instance media type allowed JSON Pointers:\r\n\r\n`Link-Template: </books/{book_id}/author>; rel=\"item\" anchor=\"#/items/{index}\"`\r\n\r\nAs an example of links between the full book resource and another resource, so as not to have to fetch the entire book resource if it is not needed, an author link template could be something like this (ignoring the likelihood of multiple authors):\r\n\r\n`Link-Template: </books/{book_id}/author>; rel=\"author\" anchor=\"/books/{book_id}\"`\r\n\r\nI was looking at this I-D in comparison to the (currently tabled) JSON Hyper-Schema project, and I think that anchor templates are the most notable relevant Hyper-Schema feature that is not present here.  I would love to be able to use a revived Hyper-Schema as a bridge between a link-template header field and JSON-compatible data.",
+      "createdAt": "2022-06-12T16:23:02Z",
+      "updatedAt": "2022-06-12T16:23:02Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
+  "pulls": [
+    {
+      "number": 3,
+      "id": "PR_kwDOHQOfi848x4Bh",
+      "title": "Change to Structured Fields",
+      "url": "https://github.com/ietf-wg-httpapi/link-template/pull/3",
+      "state": "OPEN",
+      "author": "mnot",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #1",
+      "createdAt": "2022-08-08T01:44:47Z",
+      "updatedAt": "2022-08-08T01:44:47Z",
+      "baseRepository": "ietf-wg-httpapi/link-template",
+      "baseRefName": "main",
+      "baseRefOid": "57b85937c74fd3cb6c6631e36a508d912452ac80",
+      "headRepository": "ietf-wg-httpapi/link-template",
+      "headRefName": "mnot/1",
+      "headRefOid": "2aae57d864f4021225d869d0d77f2c75fc19c99c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
