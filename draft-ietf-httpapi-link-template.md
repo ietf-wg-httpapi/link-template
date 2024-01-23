@@ -38,7 +38,7 @@ normative:
   URI-TEMPLATE: RFC6570
   URI: RFC3986
   WEB-LINKING: RFC8288
-  STRUCTURED-FIELDS: RFC8941
+  STRUCTURED-FIELDS: I-D.ietf-httpbis-sfbis
 
 
 --- abstract
@@ -59,12 +59,12 @@ This specification defines a HTTP header field {{HTTP}} for conveying templates 
 
 {::boilerplate bcp14-tagged}
 
-This specification uses the following terms from {{STRUCTURED-FIELDS}}: List, String, Parameter.
+This specification uses the following terms from {{STRUCTURED-FIELDS}}: List, String, Display String, Parameter.
 
 
 # The Link-Template Header Field
 
-The Link-Template header field is a Structured Field {{STRUCTURED-FIELDS}} that serializes one or more links into HTTP message metadata. It is semantically equivalent to the Link header field defined in {{Section 3 of WEB-LINKING}}, except that it uses URI Templates {{URI-TEMPLATE}} to convey the structure of links.
+The Link-Template header field is a Structured Field {{STRUCTURED-FIELDS}} that serializes one or more links into HTTP message metadata. It is semantically equivalent to the Link header field defined in {{Section 3 of WEB-LINKING}}, except that the link target and link anchor can contain URI Templates {{URI-TEMPLATE}}.
 
 Its value is a List of Strings. Each String is a URI Template, and Parameters on it carry associated metadata.
 
@@ -91,7 +91,14 @@ Here, the link to the author for a particular book in a list of books can be fou
 
 This specification defines additional semantics for the "var-base" Parameter on templated links; see below.
 
-The link's target attributes (as defined in {{Section 2.2 of WEB-LINKING}}) are conveyed using other Parameters, in a manner similar to the Link header field. These Parameter values MUST be Strings. Note that some target attribute names will not serialise as Structure Field Parameter keys (see {{Section 3.1.2 of STRUCTURED-FIELDS}}).
+The link's target attributes (as defined in {{Section 2.2 of WEB-LINKING}}) are conveyed using other Parameters, in a manner similar to the Link header field. These Parameter values MUST be Strings, unless they contain non-ASCII characters, in which case they MUST be Display Strings. Note that some target attribute names will not serialise as Structure Field Parameter keys (see {{Section 3.1.2 of STRUCTURED-FIELDS}}).
+
+For example:
+
+~~~ http-message
+Link-Template: "/author"; rel="author";
+               title=%"Bj%c3%b6rn J%c3%a4rnsida"
+~~~
 
 Implementations MUST support all levels of template defined by {{URI-TEMPLATE}} in the link String and the anchor Parameter.
 
