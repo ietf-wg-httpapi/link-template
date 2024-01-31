@@ -3,9 +3,9 @@
 
 
 Building Blocks for HTTP APIs                              M. Nottingham
-Internet-Draft                                              13 July 2023
+Internet-Draft                                           31 January 2024
 Intended status: Standards Track                                        
-Expires: 14 January 2024
+Expires: 3 August 2024
 
 
                   The Link-Template HTTP Header Field
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 January 2024.
+   This Internet-Draft will expire on 3 August 2024.
 
 Copyright Notice
 
-   Copyright (c) 2023 IETF Trust and the persons identified as the
+   Copyright (c) 2024 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -95,15 +95,15 @@ Table of Contents
    capitals, as shown here.
 
    This specification uses the following terms from [STRUCTURED-FIELDS]:
-   List, String, Parameter.
+   List, String, Display String, Parameter.
 
 2.  The Link-Template Header Field
 
    The Link-Template header field is a Structured Field
    [STRUCTURED-FIELDS] that serializes one or more links into HTTP
    message metadata.  It is semantically equivalent to the Link header
-   field defined in Section 3 of [WEB-LINKING], except that it uses URI
-   Templates [URI-TEMPLATE] to convey the structure of links.
+   field defined in Section 3 of [WEB-LINKING], except that the link
+   target and link anchor can contain URI Templates [URI-TEMPLATE].
 
    Its value is a List of Strings.  Each String is a URI Template, and
    Parameters on it carry associated metadata.
@@ -140,9 +140,15 @@ Table of Contents
    The link's target attributes (as defined in Section 2.2 of
    [WEB-LINKING]) are conveyed using other Parameters, in a manner
    similar to the Link header field.  These Parameter values MUST be
-   Strings.  Note that some target attribute names will not serialise as
-   Structure Field Parameter keys (see Section 3.1.2 of
+   Strings, unless they contain non-ASCII characters, in which case they
+   MUST be Display Strings.  Note that some target attribute names will
+   not serialise as Structure Field Parameter keys (see Section 3.1.2 of
    [STRUCTURED-FIELDS]).
+
+   For example:
+
+   Link-Template: "/author"; rel="author";
+                  title=%"Bj%c3%b6rn J%c3%a4rnsida"
 
    Implementations MUST support all levels of template defined by
    [URI-TEMPLATE] in the link String and the anchor Parameter.
@@ -217,8 +223,10 @@ Table of Contents
 
    [STRUCTURED-FIELDS]
               Nottingham, M. and P. Kamp, "Structured Field Values for
-              HTTP", RFC 8941, DOI 10.17487/RFC8941, February 2021,
-              <https://www.rfc-editor.org/rfc/rfc8941>.
+              HTTP", Work in Progress, Internet-Draft, draft-ietf-
+              httpbis-sfbis-05, 23 January 2024,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
+              sfbis-05>.
 
    [URI]      Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
