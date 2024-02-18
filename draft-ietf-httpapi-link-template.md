@@ -39,7 +39,15 @@ normative:
   URI: RFC3986
   WEB-LINKING: RFC8288
   STRUCTURED-FIELDS: I-D.ietf-httpbis-sfbis
-
+  UNICODE-SECURITY:
+    title: Unicode Security Considerations
+    author:
+    - name: Mark Davis
+    - name: Michel Suignard
+    date: 2014-09-19
+    seriesinfo:
+      'Unicode Technical Report': '#16'
+    target: http://www.unicode.org/reports/tr36/
 
 --- abstract
 
@@ -133,6 +141,9 @@ Link-Template: "/widgets/{widget_id}";
 # Security Considerations
 
 The security consideration for the Link header field in {{WEB-LINKING}} and those for URI Templates {{URI-TEMPLATE}} both apply.
+
+Target attributes that are conveyed via Display Strings can be vulnerable to a wide variety of attacks. See {{UNICODE-SECURITY}} for advice regarding their handling. Specific advice is not given by this specification, since there are a variety of potential use cases for such attributes.
+
 
 # IANA Considerations
 
