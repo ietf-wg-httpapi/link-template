@@ -3,9 +3,9 @@
 
 
 Building Blocks for HTTP APIs                              M. Nottingham
-Internet-Draft                                          11 February 2024
+Internet-Draft                                          18 February 2024
 Intended status: Standards Track                                        
-Expires: 14 August 2024
+Expires: 21 August 2024
 
 
                   The Link-Template HTTP Header Field
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 August 2024.
+   This Internet-Draft will expire on 21 August 2024.
 
 Copyright Notice
 
@@ -194,6 +194,12 @@ Table of Contents
    The security consideration for the Link header field in [WEB-LINKING]
    and those for URI Templates [URI-TEMPLATE] both apply.
 
+   Target attributes that are conveyed via Display Strings can be
+   vulnerable to a wide variety of attacks.  See [UNICODE-SECURITY] for
+   advice regarding their handling.  Specific advice is not given by
+   this specification, since there are a variety of potential use cases
+   for such attributes.
+
 4.  IANA Considerations
 
    This specification enters the "Link-Template" into the Hypertext
@@ -227,6 +233,11 @@ Table of Contents
               httpbis-sfbis-05, 23 January 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-
               sfbis-05>.
+
+   [UNICODE-SECURITY]
+              Davis, M. and M. Suignard, "Unicode Security
+              Considerations", Unicode Technical Report #16, 19
+              September 2014, <http://www.unicode.org/reports/tr36/>.
 
    [URI]      Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
