@@ -99,7 +99,7 @@ Here, the link to the author for a particular book in a list of books can be fou
 
 This specification defines additional semantics for the "var-base" Parameter on templated links; see below.
 
-The link's target attributes (as defined in {{Section 2.2 of WEB-LINKING}}) are conveyed using other Parameters, in a manner similar to the Link header field. These Parameter values MUST be Strings, unless they contain non-ASCII characters, in which case they MUST be Display Strings. Note that some target attribute names will not serialise as Structures Field Parameter keys (see {{Section 3.1.2 of STRUCTURED-FIELDS}}).
+The link's target attributes (as defined in {{Section 2.2 of WEB-LINKING}}) are conveyed using other Parameters, in a manner similar to the Link header field. These Parameter values MUST be Strings, unless they contain non-ASCII characters, in which case they MUST be Display Strings. Note that some target attribute names will not serialise as Structured Field Parameter keys (see {{Section 3.1.2 of STRUCTURED-FIELDS}}).
 
 For example:
 
